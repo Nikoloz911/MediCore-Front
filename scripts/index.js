@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const userData = JSON.parse(user);
             redirectUserBasedOnRole(userData);
-            return;
+            return; // Ensure no further processing after redirect
         } catch {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
@@ -37,7 +37,7 @@ function redirectUserBasedOnRole(userData) {
     };
 
     const page = rolePages[role] || 'index.html';
-    window.location.href = `./dashboard/${page}`;
+    window.location.href = page; // Redirect user based on their role
 }
 
 function renderDoctors(doctors) {
@@ -61,8 +61,10 @@ function renderDoctors(doctors) {
 }
 
 function loadDoctors() {
-    const baseUrl = window.__env?.API_BASE_URL ?? 'http://localhost:5000'; ///
+    const baseUrl = window.__env?.API_BASE_URL ?? 'http://localhost:5000';
     const apiUrl = `${baseUrl}/api/doctors`;
+
+    console.log('Fetching doctors from:', apiUrl);
 
     fetch(apiUrl)
         .then(response => {
@@ -70,13 +72,14 @@ function loadDoctors() {
             return response.json();
         })
         .then(result => {
+            console.log('API response:', result);
             if (result.status === 200 && Array.isArray(result.data)) {
                 renderDoctors(result.data);
             } else {
-                console.error('Failed to load doctors:', result.message);
+                console.error('Unexpected API format or error:', result);
             }
         })
         .catch(error => {
-            console.error('Error fetching doctors:', error);
+            console.error('Fetch failed:', error);
         });
 }
