@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Patient Portal - MediCore</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MediCore</div>
+        <div class="nav-buttons">
+            <span id="userWelcome" class="user-welcome">Welcome</span>
+            <button id="logoutBtn" class="btn">Logout</button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="dashboard-header">
+            <h1>Patient Portal</h1>
+        </div>
+        
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <h3>My Appointments</h3>
+                <p>Schedule and manage your appointments</p>
+                <button class="btn primary">Manage Appointments</button>
+            </div>
+            
+            <div class="dashboard-card">
+                <h3>Medical Records</h3>
+                <p>View your medical history and test results</p>
+                <button class="btn primary">View Records</button>
+            </div>
+            
+            <div class="dashboard-card">
+                <h3>Prescriptions</h3>
+                <p>Check your current prescriptions</p>
+                <button class="btn primary">View Prescriptions</button>
+            </div>
+            
+            <div class="dashboard-card">
+                <h3>Billing & Insurance</h3>
+                <p>Manage payments and insurance information</p>
+                <button class="btn primary">Billing Details</button>
+            </div>
+        </div>
+        
+        <div class="health-summary">
+            <h2>Health Summary</h2>
+            <div class="summary-container">
+                <div class="summary-card">
+                    <h3>Upcoming Appointments</h3>
+                    <div class="summary-item">
+                        <div class="summary-date">May 15, 2025</div>
+                        <div class="summary-details">
+                            <strong>Dr. Rebecca Miller</strong>
+                            <span>Annual checkup - 10:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Recent Medications</h3>
+                    <div class="summary-item">
+                        <div class="summary-details">
+                            <strong>Amoxicillin</strong>
+                            <span>500mg, 3 times daily</span>
+                            <span class="refill-status">Refills: 2 remaining</span>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-details">
+                            <strong>Lisinopril</strong>
+                            <span>10mg, once daily</span>
+                            <span class="refill-status">Refills: 5 remaining</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Recent Test Results</h3>
+                    <div class="summary-item">
+                        <div class="summary-date">Apr 22, 2025</div>
+                        <div class="summary-details">
+                            <strong>Blood Work Results</strong>
+                            <span>Results available - click to view</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../localhost/env.js"></script>
+    <script type="module" src="../scripts/patient.js"></script>
+</body>
+</html>
