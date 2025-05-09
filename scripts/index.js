@@ -47,18 +47,24 @@ function renderDoctors(doctors) {
     container.innerHTML = ''; // Clear existing
 
     doctors.forEach(doctor => {
-        const link = document.createElement('a');
-        link.href = `./pages/doctor.html?id=${doctor.id}`;
-        link.className = 'doctor-card';
+        const card = document.createElement('div');
+        card.className = 'doctor-card';
 
-        link.innerHTML = `
-            <h3>Dr. ${doctor.firstName} ${doctor.lastName}</h3>
-            <p><strong>Specialty:</strong> ${doctor.specialty}</p>
+        card.innerHTML = `
+            <div class="doctor-card-inner">
+                <img src="${doctor.imageURL || 'https://via.placeholder.com/300'}" alt="Dr. ${doctor.firstName}" class="doctor-image" />
+                <div class="doctor-details">
+                    <h3>Dr. ${doctor.firstName} ${doctor.lastName}</h3>
+                    <p class="specialty">${doctor.specialty}</p>
+                    <a href="./pages/doctor.html?id=${doctor.id}" class="view-profile">View Profile</a>
+                </div>
+            </div>
         `;
 
-        container.appendChild(link);
+        container.appendChild(card);
     });
 }
+
 
 function loadDoctors() {
     const baseUrl = window.__env?.API_BASE_URL ?? 'http://localhost:5000';

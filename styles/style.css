@@ -219,29 +219,118 @@ input:focus, select:focus {
     text-decoration: underline;
 }
 
+
+
+
 .doctor-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 20px;
 }
 
 .doctor-card {
-    background-color: #f4f9ff;
-    border: 1px solid #cce0f5;
-    border-radius: 8px;
-    padding: 1rem;
-    width: 200px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
-.doctor-card h3 {
+.doctor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.doctor-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.doctor-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #3498db;
+    margin-bottom: 16px;
+}
+
+.doctor-details {
+    text-align: center;
+}
+
+.doctor-details h3 {
     margin: 0;
-    font-size: 1.1rem;
-    color: #2a4d8f;
+    font-size: 1.25rem;
+    color: #2c3e50;
 }
 
-.doctor-card p {
-    margin: 0.25rem 0 0 0;
+.specialty {
+    color: #7f8c8d;
     font-size: 0.95rem;
+    margin: 8px 0;
+}
+
+.view-profile {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.view-profile:hover {
+    background-color: #2980b9;
+}
+
+
+.doctor-profile-card {
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 2rem auto;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.profile-img-box {
+    flex: 1 1 300px;
+    background-color: #f0f0f0;
+}
+
+.profile-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    flex: 2 1 400px;
+    padding: 2rem;
+}
+
+.profile-info h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+    color: #444;
+    font-size: 1rem;
+}
+
+.profile-info i {
+    margin-right: 0.5rem;
+    color: #3498db;
 }

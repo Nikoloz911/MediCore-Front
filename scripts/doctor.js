@@ -24,13 +24,24 @@ function renderDoctorDetails(doctor) {
     const container = document.getElementById('doctorDetails');
     if (!container) return;
 
+    const image = doctor.imageURL && doctor.imageURL.trim() !== ""
+        ? doctor.imageURL
+        : "https://via.placeholder.com/300x400.png?text=Doctor+Image";
+
     container.innerHTML = `
-        <h2>Dr. ${doctor.firstName} ${doctor.lastName}</h2>
-        <p><strong>Email:</strong> ${doctor.email}</p>
-        <p><strong>Specialty:</strong> ${doctor.specialty}</p>
-        <p><strong>License Number:</strong> ${doctor.licenseNumber}</p>
-        <p><strong>Working Hours:</strong> ${doctor.workingHours}</p>
-        <p><strong>Experience:</strong> ${doctor.experienceYears} years</p>
-        <p><strong>Department:</strong> ${doctor.departmentType}</p>
+        <div class="doctor-profile-card">
+            <div class="profile-img-box">
+                <img src="${image}" alt="Dr. ${doctor.firstName}" />
+            </div>
+            <div class="profile-info">
+                <h2>Dr. ${doctor.firstName} ${doctor.lastName}</h2>
+                <p><i class="fas fa-envelope"></i> ${doctor.email}</p>
+                <p><i class="fas fa-user-md"></i> ${doctor.specialty}</p>
+                <p><i class="fas fa-id-badge"></i> License: ${doctor.licenseNumber}</p>
+                <p><i class="fas fa-clock"></i> Hours: ${doctor.workingHours}</p>
+                <p><i class="fas fa-briefcase"></i> Experience: ${doctor.experienceYears} years</p>
+                <p><i class="fas fa-hospital"></i> Department: ${doctor.departmentType}</p>
+            </div>
+        </div>
     `;
 }
