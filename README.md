@@ -79,17 +79,17 @@ Each user has role-based permissions and secure authentication using JWT tokens.
 ## 📁 Project Structure
 
 - Properties – Launch settings and project metadata
-- Configurations – JWT, SMTP, Twilio, and custom application settings
+- Configurations – JWT, Services, Hangfire, and custom application settings
 - Controllers – API endpoints organized by feature (Users, Appointments, Records, etc.)
 - Core – Shared utilities, constants, and core business logic
 - Data – Entity Framework DbContext and data seeders
-- DTOs – Data Transfer Objects used in API requests/responses, grouped by domain
+- DTOs – Data Transfer Objects used in API requests/responses
 - Enums – Enum definitions (e.g., UserRoles, AppointmentStatus)
 - JWT – Token generation, validation, and JWT helper logic
 - Migrations – EF Core migrations for database versioning
 - Models – Domain models representing database entities
 - Profiles – AutoMapper profiles for mapping between entities and DTOs
-- Requests – Specialized request models (e.g., login, registration)
+- Requests – Specialized request models (e.g., User)
 - Service
   - Interfaces – Contracts for service logic (e.g., IUser, IAppointment)
   - Implementations – Business logic implementations for each service
