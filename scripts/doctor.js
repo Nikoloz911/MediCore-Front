@@ -1,12 +1,10 @@
-// ./scripts/doctor.js
-
 document.addEventListener('DOMContentLoaded', function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const doctorId = urlParams.get('id');
+    let urlParams = new URLSearchParams(window.location.search);
+    let doctorId = urlParams.get('id');
     if (!doctorId) return;
 
-    const baseUrl = window.__env?.API_BASE_URL ?? 'http://localhost:5000';
-    const apiUrl = `${baseUrl}/api/doctors/${doctorId}`;
+    let baseUrl = window.__env?.API_BASE_URL ?? 'http://localhost:5000';
+    let apiUrl = `${baseUrl}/api/doctors/${doctorId}`;
 
     fetch(apiUrl)
         .then(res => res.json())
@@ -21,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function renderDoctorDetails(doctor) {
-    const container = document.getElementById('doctorDetails');
+    let container = document.getElementById('doctorDetails');
     if (!container) return;
 
-    const image = doctor.imageURL && doctor.imageURL.trim() !== ""
+    let image = doctor.imageURL && doctor.imageURL.trim() !== ""
         ? doctor.imageURL
         : "https://via.placeholder.com/300x400.png?text=Doctor+Image";
 

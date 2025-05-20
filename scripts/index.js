@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
+    let token = localStorage.getItem('token');
+    let user = localStorage.getItem('user');
 
     if (token && user) {
         try {
-            const userData = JSON.parse(user);
+            let userData = JSON.parse(user);
             redirectUserBasedOnRole(userData);
-            return; // Ensure no further processing after redirect
+            return; 
         } catch {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
         }
     }
 
-    const loginBtn = document.getElementById('loginBtn');
-    const registerBtn = document.getElementById('registerBtn');
+    let loginBtn = document.getElementById('loginBtn');
+    let registerBtn = document.getElementById('registerBtn');
 
     loginBtn?.addEventListener('click', () => {
         window.location.href = './pages/login.html';
@@ -28,26 +28,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function redirectUserBasedOnRole(userData) {
-    const role = userData.role?.toLowerCase();
-    const rolePages = {
+    let role = userData.role?.toLowerCase();
+    let rolePages = {
         admin: 'admin.html',
         doctor: 'doctor.html',
         patient: 'patient.html',
         nurse: 'nurse.html'
     };
 
-    const page = rolePages[role] || 'index.html';
+    let page = rolePages[role] || 'index.html';
     window.location.href = page; // Redirect user based on their role
 }
 
 function renderDoctors(doctors) {
-    const container = document.getElementById('doctorsList');
+    let container = document.getElementById('doctorsList');
     if (!container) return;
 
     container.innerHTML = ''; // Clear existing
 
     doctors.forEach(doctor => {
-        const card = document.createElement('div');
+        let card = document.createElement('div');
         card.className = 'doctor-card';
 
         card.innerHTML = `
@@ -67,8 +67,8 @@ function renderDoctors(doctors) {
 
 
 function loadDoctors() {
-    const baseUrl = window.__env?.API_BASE_URL ?? 'http://localhost:5000';
-    const apiUrl = `${baseUrl}/api/doctors`;
+    let baseUrl = window.__env?.API_BASE_URL ?? 'http://localhost:5000';
+    let apiUrl = `${baseUrl}/api/doctors`;
 
     console.log('Fetching doctors from:', apiUrl);
 

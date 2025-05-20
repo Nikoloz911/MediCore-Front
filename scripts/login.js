@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.getElementById('loginForm');
-    const messageContainer = document.getElementById('messageContainer');
+    let loginForm = document.getElementById('loginForm');
+    let messageContainer = document.getElementById('messageContainer');
 
     if (loginForm) {
         loginForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            const formData = {
+            let formData = {
                 email: document.getElementById('email').value,
                 password: document.getElementById('password').value
             };
@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            const apiBaseUrl = window.__env?.API_BASE_URL || "https://localhost:7291";
-            const loginUrl = `${apiBaseUrl}/api/auth/login`;
+            let apiBaseUrl = window.__env?.API_BASE_URL || "https://localhost:7291";
+            let loginUrl = `${apiBaseUrl}/api/auth/login`;
 
             showMessage('Logging in...', 'info');
 
@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     return response.json();
                 })
                 .then(responseData => {
-                    const data = responseData.data;
+                    let data = responseData.data;
 
                     if (data && data.token) {
                         localStorage.setItem('token', data.token);
-                        const decodedToken = JSON.parse(atob(data.token.split('.')[1]));
+                        let decodedToken = JSON.parse(atob(data.token.split('.')[1]));
                         localStorage.setItem('user', JSON.stringify(decodedToken));
 
                         showMessage('Login successful! Redirecting...', 'success');
